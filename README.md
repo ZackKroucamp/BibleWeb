@@ -1291,7 +1291,7 @@ This implementation follows:
 
     Bible Reader with Parallel Translations
 ![Bible Reader](assets/images/screenshots/bible-reader.png)
-*Side-by-side ESV and KJV with user highlights (8 colors) and cross-references*
+*KJV with user highlights (8 colors) and cross-references*
 
     Interlinear Bible - Word-by-Word Analysis
 ![Interlinear](assets/images/screenshots/interlinear.png)
@@ -1315,7 +1315,7 @@ This implementation follows:
 
     Search Results Across Translations
 ![Search](assets/images/screenshots/search-results.png)
-*Full-text search showing "faith" in ESV, KJV, and NASB with context snippets*
+*Full-text search showing "faith" in KJV with context snippets*
 
 ---
 
@@ -1800,7 +1800,7 @@ This project reflects how I approach building production-ready, secure, and main
     Bible Translations
 Each translation retains its original copyright and licensing terms:
 -  Public Domain : KJV, ASV, WEB, and other older translations
--  Open Licenses : ESV (Crossway), NASB (Lockman Foundation) - subject to usage restrictions
+-  Open Licenses : ESV (Crossway), NASB (Lockman Foundation) - subject to usage restrictions (coming soon...)
 -  Proprietary : NIV, NLT, MSG - not included in public repository
 
 This application does not claim ownership of biblical texts. Consult individual translation licenses before commercial use.
@@ -1844,9 +1844,3 @@ LinkedIn: https://www.linkedin.com/in/zack-ignatius-kroucamp-507263223
 
  ⭐ If this project demonstrates the skills you're looking for, let's talk about how I can contribute to your team! 
 
----
-
-   Appendix: Key Technical Metrics
-
-    Database Scale
--  MySQL Tables : 15 tables, ~5
