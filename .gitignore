@@ -1,0 +1,35 @@
+# SQLite database files
+sqlite/
+
+# Database configuration
+config/db_config.php
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+error_log
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# PHP
+vendor/
+composer.phar
+
+# User uploads (if applicable)
+uploads/
+
+# Cache
+cache/
+*.cache

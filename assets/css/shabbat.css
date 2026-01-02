@@ -1,0 +1,640 @@
+.haftarah-section {
+    border-left-color: #8b5cf6;
+}
+
+.nt-section {
+    border-left-color: #ef4444;
+}/* assets/css/shabbat.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #fff;
+}
+
+.header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1.2rem 2rem;
+    border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    position: relative;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-toolbar {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tool-btn {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    color: #e0e7ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tool-btn:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.4));
+    border-color: rgba(59, 130, 246, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.shabbat-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.shabbat-times-section {
+    margin-bottom: 2rem;
+}
+
+.shabbat-times-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(251, 191, 36, 0.3);
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(59, 130, 246, 0.2);
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.times-content {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.times-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.shabbat-greeting {
+    margin-bottom: 1rem;
+}
+
+.greeting-hebrew {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.25rem;
+}
+
+.greeting-english {
+    display: block;
+    font-size: 1.2rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #475569;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.location-icon {
+    font-size: 0.8rem;
+    color: #3b82f6;
+}
+
+.times-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.time-item {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.time-item.candle-lighting {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-color: #fbbf24;
+}
+
+.time-item.havdalah {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-color: #3b82f6;
+}
+
+.time-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.time-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.time-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.25rem;
+}
+
+.time-date {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.parasha-banner {
+    text-align: center;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    border-radius: 12px;
+    border: 2px solid #6366f1;
+}
+
+.parasha-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.parasha-name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #4338ca;
+}
+
+.portion-wrapper {
+    animation: fadeIn 0.5s ease;
+}
+
+.portion-header-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.portion-loading {
+    padding: 2rem;
+}
+
+#portion-header-content h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.portion-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.portion-hebrew {
+    font-size: 1.6rem;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+.portion-divider {
+    color: #cbd5e1;
+    font-weight: 700;
+}
+
+.portion-range {
+    font-size: 1.1rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.portion-section {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border-left: 5px solid #3b82f6;
+}
+
+.summary-section {
+    border-left-color: #3b82f6;
+}
+
+.verses-section {
+    border-left-color: #fbbf24;
+}
+
+.teaching-section {
+    border-left-color: #8b5cf6;
+}
+
+.themes-section {
+    border-left-color: #10b981;
+}
+
+.questions-section {
+    border-left-color: #f59e0b;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.section-header h3 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+    margin: 0;
+}
+
+.section-content {
+    color: #334155;
+}
+
+.summary-text,
+.teaching-text {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.summary-text p,
+.teaching-text p {
+    margin-bottom: 1rem;
+}
+
+.verse-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid #f59e0b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.verse-reference {
+    font-weight: 800;
+    color: #92400e;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.verse-text {
+    color: #1f2937;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.verse-commentary {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(146, 64, 14, 0.2);
+}
+
+.haftarah-reference {
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #8b5cf6;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #5b21b6;
+    font-size: 1.05rem;
+}
+
+.haftarah-card,
+.nt-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid #6366f1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.haftarah-card {
+    border-left-color: #8b5cf6;
+}
+
+.nt-card {
+    border-left-color: #ef4444;
+}
+
+.scripture-reference {
+    font-weight: 800;
+    color: #1e293b;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.scripture-text {
+    color: #1f2937;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.scripture-commentary {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.theme-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    transition: all 0.3s ease;
+}
+
+.theme-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+
+.theme-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+}
+
+.theme-description {
+    color: #475569;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.question-item {
+    background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #f59e0b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.question-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.question-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: #f59e0b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.question-text {
+    flex: 1;
+    color: #1f2937;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.status-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.status-message.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.status-message.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: 2px solid #10b981;
+}
+
+.status-message.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: 2px solid #ef4444;
+}
+
+.status-message.info {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: 2px solid #3b82f6;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-toolbar {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .tool-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-text {
+        display: none;
+    }
+
+    .shabbat-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .shabbat-times-card,
+    .portion-header-card,
+    .portion-section {
+        padding: 1.5rem;
+    }
+
+    .greeting-hebrew {
+        font-size: 2rem;
+    }
+
+    .greeting-english {
+        font-size: 1rem;
+    }
+
+    .times-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .time-value {
+        font-size: 1.75rem;
+    }
+
+    #portion-header-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .portion-hebrew {
+        font-size: 1.3rem;
+    }
+
+    .portion-range {
+        font-size: 1rem;
+    }
+
+    .section-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .themes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .question-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
