@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const containerRect = canvasContainer.getBoundingClientRect();
         const canvasCenterX = 50000 / 2;
         
-        // Pan to show Adam (at canvas center) in the middle of the viewport
+        // Pan to show Adam (at canvas centerish) in the middle of the viewport
         panOffset = { 
             x: containerRect.width / 2 - canvasCenterX * scale,
             y: 50
@@ -181,7 +181,7 @@ function handleMouseLeave(e) {
 
 function zoom(e) {
     e.preventDefault();
-    const delta = e.deltaY > 0 ? 0.995 : 1.005; // 10x less sensitive
+    const delta = e.deltaY > 0 ? 0.995 : 1.005; 
     scale = Math.max(0.2, Math.min(3, scale * delta));
     updateCanvasTransform();
     updateConnections();
@@ -189,14 +189,14 @@ function zoom(e) {
 }
 
 function zoomIn() {
-    scale = Math.min(3, scale * 1.02); // 10x less sensitive
+    scale = Math.min(3, scale * 1.02); 
     updateCanvasTransform();
     updateConnections();
     updateMinimap();
 }
 
 function zoomOut() {
-    scale = Math.max(0.2, scale * 0.98); // 10x less sensitive
+    scale = Math.max(0.2, scale * 0.98); 
     updateCanvasTransform();
     updateConnections();
     updateMinimap();
@@ -635,7 +635,7 @@ function clearTree() {
 
 function loadSampleData() {
     // Calculate center of canvas (50000 width)
-    const canvasCenterX = 50000 / 2;
+    const canvasCenterX = 35000;
     
     const sampleCharacters = [
         { id: 1, name: 'Adam', age: 930, sex: 'male', description: 'The first man created by God', x: canvasCenterX - 125, y: 200 },
@@ -672,7 +672,7 @@ function autoLayout() {
     const generations = organizeByGenerations();
     const generationHeight = 300;
     const horizontalSpacing = 280;
-    const canvasCenterX = 50000 / 2; // Use actual canvas center
+    const canvasCenterX = 35000; // Use actual canvas center
     
     generations.forEach((generation, genIndex) => {
         const y = 200 + genIndex * generationHeight;

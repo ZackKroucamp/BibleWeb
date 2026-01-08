@@ -3,6 +3,8 @@ sqlite/
 
 # Database configuration
 config/db_config.php
+includes/db.php
+bible_web.db
 
 # System files
 .DS_Store
@@ -26,9 +28,6 @@ error_log
 # PHP
 vendor/
 composer.phar
-
-# User uploads (if applicable)
-uploads/
 
 # Cache
 cache/

@@ -11,12 +11,10 @@ session_start();
 
 try {
     // Include database connection
-    require_once(__DIR__ . '/../includes/db.php');
+    require_once(__DIR__ . '/../config/db_config.php');
     
-    // Check if database connection exists
-    if (!isset($conn) || $conn === null) {
-        throw new Exception("Database connection failed");
-    }
+    // Get PDO connection
+    $conn = getMySQLConnection();
     
     // Get input data
     $input = file_get_contents('php://input');
@@ -38,26 +36,17 @@ try {
         exit;
     }
     
-    // Query with correct column names matching your database
+    // Query with PDO instead of mysqli
     $stmt = $conn->prepare("
         SELECT id, username, password_hash, email, active 
         FROM users 
         WHERE username = ? AND active = 1
     ");
     
-    if (!$stmt) {
-        throw new Exception("Failed to prepare statement: " . $conn->error);
-    }
+    $stmt->execute([$username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    $stmt->bind_param("s", $username);
-    
-    if (!$stmt->execute()) {
-        throw new Exception("Failed to execute statement: " . $stmt->error);
-    }
-    
-    $result = $stmt->get_result();
-    
-    if ($user = $result->fetch_assoc()) {
+    if ($user) {
         // Use password_verify for hashed passwords
         if (password_verify($password, $user['password_hash'])) {
             // Set session variables
@@ -65,12 +54,8 @@ try {
             $_SESSION['username'] = $user['username'];
             
             // Update last login timestamp
-            $updateStmt = $conn->prepare("UPDATE users SET updated_at = NOW() WHERE id = ?");
-            if ($updateStmt) {
-                $updateStmt->bind_param("i", $user['id']);
-                $updateStmt->execute();
-                $updateStmt->close();
-            }
+            $updateStmt = $conn->prepare("UPDATE users SET updated_at = datetime('now') WHERE id = ?");
+            $updateStmt->execute([$user['id']]);
             
             // Return success with user data
             echo json_encode([
@@ -94,9 +79,6 @@ try {
             "message" => "User not found or account is inactive"
         ]);
     }
-    
-    $stmt->close();
-    $conn->close();
     
 } catch (Exception $e) {
     // Log error for debugging

@@ -38,9 +38,7 @@ try {
     ]);
 }
 
-/**
- * Get current Torah portion based on the Hebrew calendar cycle
- */
+
 function getCurrentPortion($db) {
     // Get the current portion number based on the annual cycle
     $portionNumber = getCurrentPortionNumber();
@@ -89,19 +87,11 @@ function getCurrentPortion($db) {
     ]);
 }
 
-/**
- * Calculate which Torah portion we're in based on the annual cycle
- * The Torah reading cycle typically starts after Simchat Torah (usually late September/October)
- * and cycles through 54 portions over the year
- */
+
 function getCurrentPortionNumber() {
     $now = new DateTime();
     $currentYear = (int)$now->format('Y');
-    
-    // Simchat Torah typically falls in late September or October
-    // We'll use October 15 as an approximate start date for the cycle
-    // In a real implementation, you'd want to calculate the actual date based on the Hebrew calendar
-    $cycleStartMonth = 10; // October
+    $cycleStartMonth = 10; 
     $cycleStartDay = 15;
     
     // Determine the year of the current cycle

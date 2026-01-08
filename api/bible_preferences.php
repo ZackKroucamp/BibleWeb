@@ -55,19 +55,27 @@ try {
                 $fontSize = 16;
             }
             
-            // Insert or update using MySQL syntax
+            // Insert or update using SQLite syntax
             $stmt = $db->prepare("
-                INSERT INTO user_preferences 
-                (user_id, theme, font_size, default_version, parallel_view_enabled, parallel_version, sync_scroll)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                ON DUPLICATE KEY UPDATE 
-                    theme = VALUES(theme),
-                    font_size = VALUES(font_size),
-                    default_version = VALUES(default_version),
-                    parallel_view_enabled = VALUES(parallel_view_enabled),
-                    parallel_version = VALUES(parallel_version),
-                    sync_scroll = VALUES(sync_scroll),
-                    updated_at = CURRENT_TIMESTAMP
+            INSERT INTO user_preferences (
+                user_id,
+                theme,
+                font_size,
+                default_version,
+                parallel_view_enabled,
+                parallel_version,
+                sync_scroll
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(user_id)
+            DO UPDATE SET
+                theme = excluded.theme,
+                font_size = excluded.font_size,
+                default_version = excluded.default_version,
+                parallel_view_enabled = excluded.parallel_view_enabled,
+                parallel_version = excluded.parallel_version,
+                sync_scroll = excluded.sync_scroll,
+                updated_at = CURRENT_TIMESTAMP;
             ");
             
             $stmt->execute([

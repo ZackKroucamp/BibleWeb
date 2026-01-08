@@ -380,7 +380,8 @@ transition: transform 0.2s ease;
 }
 .btn-link:hover .arrow {
 transform: translateX(5px);
-}/* Welcome Message */
+}
+/* Welcome Message */
 .welcome-message {
 text-align: center;
 color: #e0e7ff;
@@ -435,7 +436,8 @@ color: #94a3b8;
 font-size: 0.9rem;
 line-height: 1.5;
 margin: 0;
-}/* No Results */
+}
+/* No Results */
 .no-results {
 text-align: center;
 padding: 4rem 2rem;
@@ -454,7 +456,8 @@ color: #e0e7ff;
 .no-results p {
 margin-bottom: 2rem;
 font-size: 1.1rem;
-}/* Loading & Error States */
+}
+/* Loading & Error States */
 .loading {
 text-align: center;
 padding: 4rem 2rem;
@@ -474,7 +477,8 @@ border: 2px solid rgba(239, 68, 68, 0.3);
 border-radius: 12px;
 color: #fca5a5;
 font-size: 1.1rem;
-}/* Modal Styles */
+}
+/* Modal Styles */
 .modal {
 display: none;
 position: fixed;
@@ -535,7 +539,8 @@ z-index: 10;
 background: rgba(0, 0, 0, 0.2);
 color: #1e293b;
 transform: rotate(90deg);
-}/* Recipe Detail Styles */
+}
+/* Recipe Detail Styles */
 #recipeDetail {
 padding: 2rem;
 color: #1e293b;
@@ -598,7 +603,8 @@ background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 
 padding: 1.5rem;
 border-radius: 12px;
 border-left: 4px solid #f59e0b;
-}/* Scripture References */
+}
+/* Scripture References */
 .scripture-list {
 display: flex;
 flex-direction: column;
@@ -652,7 +658,8 @@ color: #64748b;
 font-size: 0.9rem;
 margin-top: 0.5rem;
 font-style: italic;
-}/* Periods */
+}
+/* Periods */
 .period-list {
 display: flex;
 flex-direction: column;

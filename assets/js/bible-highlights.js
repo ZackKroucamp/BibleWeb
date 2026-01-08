@@ -53,8 +53,7 @@ function createColorPickerModal() {
 }
 
 function setupHighlightListeners() {
-    // Add click listeners to verses when they're loaded
-    // This will be called after verses are displayed
+    
 }
 
 function toggleHighlightMode() {

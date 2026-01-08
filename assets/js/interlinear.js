@@ -4,7 +4,7 @@ let books = [];
 let currentTestament = null;
 let currentBook = null;
 let currentChapter = null;
-let displayMode = 'interlinear'; // 'interlinear', 'side-by-side', 'line-view'
+let displayMode = 'interlinear'; // 'interlinear', 'side-by-side', 'line-view' 
 let selectedWord = null;
 
 // Display settings

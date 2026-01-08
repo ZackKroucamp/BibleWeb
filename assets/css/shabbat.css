@@ -1,10 +1,11 @@
+/* assets/css/shabbat.css */
 .haftarah-section {
     border-left-color: #8b5cf6;
 }
 
 .nt-section {
     border-left-color: #ef4444;
-}/* assets/css/shabbat.css */
+}
 
 * {
     margin: 0;

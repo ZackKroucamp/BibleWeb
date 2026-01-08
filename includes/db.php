@@ -1,18 +1,14 @@
 <?php
-// Database configuration
-$host     = "localhost";
-$dbname   = "bible_web";
-$dbuser   = "root"; // XAMPP default
-$dbpass   = "";     // XAMPP default has no password
+$dbname = "bible_web.db";
 
-// Create connection
-$conn = new mysqli($host, $dbuser, $dbpass, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+try {
+    $conn = new PDO("sqlite:" . $dbname);
+    
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    $conn->exec("PRAGMA foreign_keys = ON;");
+    
+} catch(PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
-
-// Optional: set charset to utf8mb4 for proper Unicode support
-$conn->set_charset("utf8mb4");
 ?>

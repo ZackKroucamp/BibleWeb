@@ -83,14 +83,23 @@ try {
                 $color = 'yellow';
             }
             
-            // Insert or update using MySQL syntax
+            // Insert or update using SQLite syntax, no duplicate :(
             $stmt = $db->prepare("
-                INSERT INTO user_highlights (user_id, version_code, book_id, chapter, verse, color, note)
+                INSERT INTO user_highlights (
+                    user_id,
+                    version_code,
+                    book_id,
+                    chapter,
+                    verse,
+                    color,
+                    note
+                )
                 VALUES (?, ?, ?, ?, ?, ?, ?)
-                ON DUPLICATE KEY UPDATE 
-                    color = VALUES(color),
-                    note = VALUES(note),
-                    updated_at = CURRENT_TIMESTAMP
+                ON CONFLICT(user_id, version_code, book_id, chapter, verse)
+                DO UPDATE SET
+                    color = excluded.color,
+                    note = excluded.note,
+                    updated_at = CURRENT_TIMESTAMP;
             ");
             
             $stmt->execute([$user_id, $version, $book_id, $chapter, $verse, $color, $note]);
